@@ -15,6 +15,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-200px,-155px);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);;
 }
 .title-box {
     height: 60px;
@@ -22,4 +23,27 @@ body {
 }
 .reg-box {
     display: none;
+}
+.layui-form {
+    padding: 0px 30px;
+}
+.links {
+    float: right;
+}
+.links a {
+    font-size: 14px;
+}
+.login-box {
+    margin-top: 30px;
+}
+.layui-form-item {
+    position: relative;
+}
+.layui-form-item input {
+    padding-left: 30px;
+}
+.layui-form-item i {
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
