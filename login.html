@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <!-- https://www.showdoc.com.cn/escook/3707372986195375 -->
     <!-- 头部的logo区域 -->
     <div class="layui-main">
         <img src="./assets/images/logo.png" alt="">
@@ -28,13 +29,13 @@
                 <!-- 用户名 -->
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-username"></i>
-                    <input type="text" name="username" required lay-verify="required" placeholder="请输入用户名"
+                    <input type="text" name="username" required lay-verify="required|" placeholder="请输入用户名"
                         autocomplete="off" class="layui-input">
                 </div>
                 <!-- 密码 -->
                 <div class="layui-form-item ">
                     <i class="layui-icon layui-icon-password"></i>
-                    <input type="text" name="passwd" required lay-verify="required" placeholder="请输入密码"
+                    <input type="text" name="passwd" required lay-verify="required|pwd" placeholder="请输入密码"
                         autocomplete="off" class="layui-input ">
                 </div>
                 <!-- 登录按钮 -->
@@ -50,7 +51,7 @@
         <!-- 注册的div -->
         <div class="reg-box">
             <!-- 注册的表单 -->
-            <form class="layui-form" action="">
+            <form class="layui-form" id="form_reg">
                 <!-- 用户名 -->
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-username"></i>
@@ -60,13 +61,13 @@
                 <!-- 密码 -->
                 <div class="layui-form-item ">
                     <i class="layui-icon layui-icon-password"></i>
-                    <input type="text" name="passwd" required lay-verify="required" placeholder="请输入密码"
+                    <input type="password" name="passwd" required lay-verify="required|pwd" placeholder="请输入密码"
                         autocomplete="off" class="layui-input ">
                 </div>
                 <!-- 确认密码 -->
                 <div class="layui-form-item ">
                     <i class="layui-icon layui-icon-password"></i>
-                    <input type="text" name="repasswd" required lay-verify="required" placeholder="请再次确认密码"
+                    <input type="password" name="repasswd" required lay-verify="required|pwd|reowd" placeholder="请再次确认密码"
                         autocomplete="off" class="layui-input ">
                 </div>
                 <!-- 登录按钮 -->
@@ -80,6 +81,8 @@
             </form>
         </div>
     </div>
+    <!-- 导入layui js -->
+    <script src="./assets/lib/layui/layui.all.js"></script>
     <!-- 导入jQuery -->
     <script src="./assets/lib/jquery.js"></script>
     <!-- 导入自己的js脚本 -->
