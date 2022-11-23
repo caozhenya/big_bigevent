@@ -38,8 +38,8 @@ $(function () {
         // 发起Ajax请求
         $.post(`${url}/api/reguser`, data, function (resp) {
             if (resp.status !== 0) {
-                layer.msg(resp.message);
                 $("#form_reg [name=username]").val("");
+                return layer.msg(resp.message);
             }
             else {
                 layer.msg(resp.message);
@@ -48,4 +48,28 @@ $(function () {
             }
         });
     })
+
+    // 监听登录表单的登录事件
+    $("#form_login").submit(function (e) {
+        // 阻止默认行为
+        e.preventDefault();
+        $.ajax({
+            url: `${url}/api/login`,
+            method: 'POST',
+            data: $(this).serialize(),
+            success: function (resp) {
+                if (resp.status !== 0) {
+                    return layer.msg(resp.message);
+                }
+                layer.msg(resp.message);
+                // 将登录成功的token字符串 保存到localStorage中
+                localStorage.setItem("token",resp.token);
+                // 登录成功跳转到后台主页
+                location.href = '/index.html';
+                
+            }
+        })
+    });
+
+
 });
