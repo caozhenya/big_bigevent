@@ -29,11 +29,23 @@ function getUserInfo() {
         // },
         success: function (resp) {
             if (resp.status !== 0) {
-                return layui.layer.msg('获取用户信息失败!')
+                return layui.layer.msg(resp.message)
             }
             // 调用renderAvatar 渲染用户的头像
             renderAvatar(resp.data);
-        }
+        },
+        // 无论成功还是失败 都会调用该 complete回调函数
+        // complete: function (resp) {
+        //     // 在该函数中 可以使用resp.responseJSON 拿到服务器响应回来的数据
+        //     // resp.responseJSON
+        //     if (resp.responseJSON.message === "身份认证失败！" && resp.responseJSON.status === 1) {
+        //         // 1.强制清空token
+        //         localStorage.removeItem('token');
+        //         // 2.强制跳转到登录页面
+        //         location.href = './login.html'
+
+        //     }
+        // }
     })
 };
 // 渲染用户的头像
