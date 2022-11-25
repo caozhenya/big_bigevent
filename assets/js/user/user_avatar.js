@@ -1,13 +1,19 @@
 $(function () {
+    var layer = layui.layer
     $.ajax({
         method: 'GET',
         url: `${window.parent.url}/my/userinfo`,
         success: function (resp) {
-            console.log(resp);
-            $('#image').css('src','/assets/images/logo.png')
+            if (resp.status !== 0) {
+                return layer.msg('获取用户信息失败!');
+            }
+            var pic = resp.data.user_pic;
+            console.log('成功了');
+            // $("#image").prop('src',pic)
+            $('#image').css('src', pic)
         }
+
     })
-    var layer = layui.layer
     // 1.1 获取裁剪区域的 DOM 元素
     var $image = $('#image')
     // 1.2 配置选项
