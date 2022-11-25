@@ -1,4 +1,12 @@
 $(function () {
+    $.ajax({
+        method: 'GET',
+        url: `${window.parent.url}/my/userinfo`,
+        success: function (resp) {
+            console.log(resp);
+            $('#image').css('src','/assets/images/logo.png')
+        }
+    })
     var layer = layui.layer
     // 1.1 获取裁剪区域的 DOM 元素
     var $image = $('#image')
