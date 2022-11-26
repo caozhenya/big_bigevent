@@ -1,5 +1,7 @@
 $(function () {
     var layer = layui.layer
+    // 1.1 获取裁剪区域的 DOM 元素
+    var $image = $('#image')
     $.ajax({
         method: 'GET',
         url: `${window.parent.url}/my/userinfo`,
@@ -8,14 +10,13 @@ $(function () {
                 return layer.msg('获取用户信息失败!');
             }
             var pic = resp.data.user_pic;
-            console.log('成功了');
-            // $("#image").prop('src',pic)
-            $('#image').css('src', pic)
+            $image
+                .cropper('destroy')      // 销毁旧的裁剪区域
+                .attr('src', pic)  // 重新设置图片路径
+                .cropper(options)        // 重新初始化裁剪区域
         }
-
     })
-    // 1.1 获取裁剪区域的 DOM 元素
-    var $image = $('#image')
+
     // 1.2 配置选项
     const options = {
         // 纵横比

@@ -8,3 +8,14 @@ body {
     background-color: #f2f3f5;
     padding: 15px;
 }
+
+.layui-card-header button {
+    float: right;
+    align-items: center;
+}
+
+#form-add {
+    padding-top: 20px;
+    padding-right: 30px;
+
+}
